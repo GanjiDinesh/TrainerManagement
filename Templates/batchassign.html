@@ -1,0 +1,44 @@
+{% extends 'bootstrap4.html' %}
+{% block title %}
+      BatchAssign Page
+      {% endblock %}
+{% block body %}
+<div class="container">
+      <h2> BatchAssign </h2>
+<form action="readbatchassign" method="post">
+      {% csrf_token %}
+      <div class="form-outline mb-4">
+        <label class="form-label" >Trainer id</label>
+            <select name="ddltrainerid" class="from-control">
+    <option>---select---</option>
+    {% for i in trainerid %}
+    <option>{{i.id}}</option>
+    {% endfor %}
+</select>
+      </div>
+      <div class="form-outline mb-4">
+            <label class="form-lable" for="tbdate">Date</label>
+            <input type="date" id="tbdate" name="tbdate">
+      </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="tbclassroom">ClassRoom</label>
+        <input type="text" id="tbclassroom" name="tbclassroom">
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label">Course</label>
+        <select name="ddlcourse" class="form-control">
+            <option>---select----</option>
+            {% for i in course %}
+            <option>{{i.course_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="tbbatchno">Batch No</label>
+        <input type="text" id="tbbatchno" name="tbbatchno">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary btn-block mb-4">
+
+</form>
+</div>
+{% endblock %}

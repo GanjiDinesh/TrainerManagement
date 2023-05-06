@@ -1,0 +1,91 @@
+{% extends 'bootstrap4.html' %}
+{% block nav %}
+{% endblock %}
+{% block body %}
+<div class="container">
+  <h1>Register Page</h1>
+<form action="readregister" method="post">
+  {% csrf_token %}
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="form2Example1" name="tbemail" class="form-control" />
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+  <!-- User input -->
+   <div class="form-outline mb-4">
+    <input type="text" id="tbusername" name="tbusername" class="form-control" />
+    <label class="form-label" for="tbusername">User Name</label>
+  </div>
+    <!-- Phno input -->
+    <div class="form-outline mb-4">
+      <input type="text" class="form-control" id="tbphno" name="tbphno">
+        <label class="form-label" for="tbphno">PhoneNo</label>
+    </div>
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example2" name="tbpass" class="form-control" />
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+      <div class="form-outline mb-4">
+      <label class="from-label">City</label>
+      <select name="ddlcity" class="from-control">
+    <option>---select---</option>
+    {% for i in cities %}
+    <option>{{i.city_name}}</option>
+    {% endfor %}
+</select>
+    </div>
+    <div class="form-outline mb-4">
+      <label class="from-label" >Course</label>
+      <select name="ddlcourse" class="from-control">
+    <option>---select---</option>
+    {% for i in course %}
+    <option>{{i.course_name}}</option>
+    {% endfor %}
+</select>
+    </div>
+
+  <!-- 2 column grid layout for inline styling -->
+  <div class="row mb-4">
+    <div class="col d-flex justify-content-center">
+      <!-- Radio -->
+      <div class="form-check">
+          <label class="form-check-label"> User Type </label><br>
+        <input class="form-check-input" type="radio" value="Admin"  name="usertype" />
+            <label class="form-check-label"> Admin </label><br>
+        <input class="form-check-input" type="radio" value="Trainer" name="usertype" />
+            <label class="form-check-label"> Trainer </label><br>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Simple link -->
+      <a href="#!">Forgot password?</a>
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <input type="submit" value="Sign Up" class="btn btn-primary btn-block mb-4">
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a href="#!">Register</a></p>
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
+  </div>
+</form>
+  </div>
+{% endblock %}

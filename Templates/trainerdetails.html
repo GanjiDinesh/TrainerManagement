@@ -1,0 +1,30 @@
+{% extends 'bootstrap4.html' %}
+{% block title %}
+  Display Student Page
+{% endblock %}
+{% block body %}
+<table class="table">
+    <thead>
+      <tr>
+        <th>trainer_name</th>
+        <th>Email</th>
+        <th>Phoneno</th>
+        <th>City</th>
+        <th>Course</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in trainer %}
+    <tr>
+        <td>{{i.trainer_name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.phoneno}}</td>
+        <td>{{i.city}}</td>
+        <td>{{i.course}}</td>
+        <td>{{i.password}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

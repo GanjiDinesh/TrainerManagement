@@ -1,0 +1,28 @@
+{% extends 'bootstrap4.html' %}
+{% block title %}
+  BatchDetails Page
+{% endblock %}
+{% block body %}
+<table class="table">
+  <thead>
+  <tr>
+    <th>Trainer id</th>
+    <th>Date</th>
+    <th>Class Room</th>
+    <th>Course</th>
+    <th>Batch No</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+  <tr>
+    <td>{{i.trainer_id}}</td>
+    <td>{{i.date_time}}</td>
+    <td>{{i.classroom}}</td>
+    <td>{{i.course}}</td>
+    <td>{{i.batch_no}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
